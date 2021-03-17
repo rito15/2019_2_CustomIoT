@@ -1,0 +1,16 @@
+<ion-list>
+  <ion-list-header color="medium"><h6>Setup Target URL</h6></ion-list-header>
+  <!--  <ion-item *ngIf="temCheck">-->
+  <ion-item>
+    <ion-input (ionChange)="setGlobalIP($event)" no-padding
+               required text-center placeholder="000.000.000.000" inputmode="numeric"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button slot="end" color="secondary" (click)="saveToGlobalIP()"
+    ><ion-icon icon="save"></ion-icon></ion-button>
+  </ion-item>
+  <ion-item button color="danger" (click)="closePopover()">
+    <ion-icon name="close" slot="start" (click)="saveToGlobalIP()"></ion-icon>
+    Close
+  </ion-item>
+</ion-list>

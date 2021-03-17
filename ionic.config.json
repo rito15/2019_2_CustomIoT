@@ -1,0 +1,7 @@
+{
+  "name": "customIoT",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

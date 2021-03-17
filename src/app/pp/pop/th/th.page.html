@@ -1,0 +1,35 @@
+<ion-list>
+  <ion-list-header color="medium"><h6>Temperature / Humidity</h6></ion-list-header>
+  <ion-item>
+    <ion-label>Temperature</ion-label>
+<!--    <ion-toggle slot="end" [(ngModel)]="temCheck"></ion-toggle>-->
+  </ion-item>
+<!--  <ion-item *ngIf="temCheck">-->
+  <ion-item>
+    <ion-range pin="true" dualKnobs="true" min="0" max="50"
+               [(ngModel)]="temInput" (ionChange)="setTemBadge($event)">
+      <ion-badge slot="start">{{this.minInputTem}}&#176;C</ion-badge>
+      <ion-badge slot="end">{{this.maxInputTem}}&#176;C</ion-badge>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-label>Humidity</ion-label>
+<!--    <ion-toggle slot="end" [(ngModel)]="humCheck"></ion-toggle>-->
+  </ion-item>
+<!--  <ion-item *ngIf="humCheck">-->
+  <ion-item>
+    <ion-range pin="true" dualKnobs="true" min="20" max="90"
+               [(ngModel)]="humInput" (ionChange)="setHumBadge($event)">
+      <ion-badge slot="start">{{this.minInputHum}}%</ion-badge>
+      <ion-badge slot="end">{{this.maxInputHum}}%</ion-badge>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-button slot="end" color="secondary" (click)="setGlobalTempHumiValues()"
+    ><ion-icon icon="save"></ion-icon></ion-button>
+  </ion-item>
+  <ion-item button color="danger" (click)="closePopover()">
+    <ion-icon name="close" slot="start" (click)="setGlobalTempHumiValues()"></ion-icon>
+    Close
+  </ion-item>
+</ion-list>

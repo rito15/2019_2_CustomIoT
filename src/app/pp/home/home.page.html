@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar style="padding-right: 20px">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Set IoT</ion-title>
+    <ion-button no-padding size="small" shape="round" color="danger" slot="end" (click)="openPopoverSetIp($event)">
+       &nbsp; URL &nbsp;
+    </ion-button>
+    <ion-button size="small" shape="round" color="mainS" slot="end" (click)="requestHeader()">
+      <ion-icon name="sync"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+
+  <div class="wrap" padding [ngSwitch]="checkMode()">
+    <ion-button color="secondary" (click)="alertURL()">Target URL : <br>{{getGlobalURL()}}</ion-button><br>
+    <ion-button disabled color="light">Connected - {{getModeString()}}</ion-button><br>
+    <div *ngSwitchDefault>
+      <ion-button color="mainS" *ngIf="checkTempHumiExists() === true"
+                  (click)="openPopoverMd($event)">Motion Detector</ion-button><br>
+      <ion-button color="mainS" *ngIf="checkMotionExists() === true"
+                  (click)="openPopoverTh($event)">Temperature / Humidity</ion-button><br>
+      <ion-button color="dark" *ngIf="checkTempHumiExists() || checkMotionExists()"
+                  (click)="sendEvents()">Save</ion-button>
+    </div>
+    <div *ngSwitchCase="3">
+      <ion-button disabled="" color="main" routerLink="/menu/jumper">Jumper Project</ion-button><br>
+      <ion-button disabled="" color="main" routerLink="/menu/interrupt">Interrupt Project</ion-button><br>
+      <ion-button color="main" routerLink="/menu/and-or">And/Or Project</ion-button><br>
+      <ion-button color="main" routerLink="/menu/block">Block Project</ion-button><br>
+      <ion-menu-toggle>
+        <ion-button color="tertiary">Menu</ion-button>
+      </ion-menu-toggle>
+    </div>
+    <div *ngSwitchCase="0"></div>
+  </div>
+
+
+
+</ion-content>

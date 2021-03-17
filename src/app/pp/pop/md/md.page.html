@@ -1,0 +1,17 @@
+<div class="wrap">
+<ion-list>
+  <ion-list-header color="medium"><h6>Motion Detector</h6></ion-list-header>
+  <ion-item>
+    <ion-label>On</ion-label>
+    <ion-toggle slot="end" checked="{{getGlobalMotionValue()}}"
+    (ionChange)="setGlobalMotionValue($event)"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-button slot="end" color="secondary"><ion-icon icon="save"></ion-icon></ion-button>
+  </ion-item>
+  <ion-item button color="danger" (click)="closePopover()">
+    <ion-icon name="close" slot="start"></ion-icon>
+    Close
+  </ion-item>
+</ion-list>
+</div>
